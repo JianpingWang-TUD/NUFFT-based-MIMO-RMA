@@ -2,7 +2,7 @@
 The code implements the Nonuniform fast Fourier transform (NUFFT) based range migration algorithm for 3-D short-range imaging with an arbitary planar MIMO array.
 
 ## Requirement
-In the implementation, the NUFFT package (Version 1.3.3) from Greengard, etal is required, which could be found via https://cims.nyu.edu/cmcl/nufft/nufft.html.    
+In the implementation, the NUFFT package (Version 1.3.3) from Greengard, etal is used, which could be found via https://cims.nyu.edu/cmcl/nufft/nufft.html.    
 
 A demo of 3-D imaging with the synthetic EM data is given.
 
