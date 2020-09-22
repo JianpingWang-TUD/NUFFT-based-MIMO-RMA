@@ -9,7 +9,7 @@ A demonstration of 3-D imaging with the synthetic EM data is given.
 
 ## Citation
 Please cite our work as
-
+```
 @article{,
    author = {Wang, J. and Aubry, P. and Yarovoy, A.},
    title = {{3-D} Short-Range Imaging With Irregular {MIMO} Arrays Using {NUFFT-B}ased Range Migration Algorithm},
@@ -22,5 +22,5 @@ Please cite our work as
    year = {2020},
    type = {Journal Article}
 }
-
+```
 
