@@ -4,7 +4,7 @@ The code implements the Nonuniform fast Fourier transform (NUFFT) based range mi
 ## Requirement
 In the implementation, the NUFFT package (Version 1.3.3) from Greengard, etal is required, which could be found via https://cims.nyu.edu/cmcl/nufft/nufft.html.    
 
-A demonstration of 3-D imaging with the synthetic EM data is given.
+A demo of 3-D imaging with the synthetic EM data is given.
 
 
 ## Citation
