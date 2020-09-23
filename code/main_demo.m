@@ -20,7 +20,7 @@ addpath('.\util')
 %% Load Data and Initialization
 disp('Data Loading...')
 
-load('.\Dataset\SynData_MIMO_E-shape_NumTx=70_NumRx=75.mat')
+load('..\Dataset\SynData_MIMO_E-shape_NumTx=70_NumRx=75.mat')
 
 echo = EMData;   % the EM data array
 freq = OperatingFreq;  % the frequency samples of the data set
@@ -31,12 +31,14 @@ TY = MIMOArray.Transmitter.TY;    % Y coordinates
 TZ = MIMOArray.Transmitter.TZ;    % Z coordinates
 deltaSt = MIMOArray.Transmitter.vCellArea; % Area of Voronoi cell
 Rd_t = 0.25;             % radius of the transmit antenna aperture
+Num_Tx = length(TX);
 %receiving array --- placed on the xz plane
 RX = MIMOArray.Receiver.RX;       % X coordinates
 RY = MIMOArray.Receiver.RY;       % Y coordinates
 RZ = MIMOArray.Receiver.RZ;       % Z coordinates
 deltaSr = MIMOArray.Receiver.vCellArea; %Area of Voronoi cell
 Rd_r = 0.25;             %radius of the receive antenna aperture
+Num_Rx = length(RX);
 
 clear EMData
 %% Some parameters/Constants
@@ -120,7 +122,7 @@ dKz = Kz(2)-Kz(1);
 [X,Z] = CalKPts_Length(KxNum_img*dKx,KzNum_img*dKz,KxNum_img,KzNum_img);
 Y = 2*pi/dKy/KyNum * [ 0:(KyNum-1) ];
 %% Display
-hand_fig = figure;
+hf = figure;
 Ftsz = 12;
 maxvalue = max(abs(ImagData(:)));
 ImagNorm = abs(ImagData)/maxvalue;
@@ -152,4 +154,6 @@ xlabel('X [m]','fontsize',Ftsz)
 ylabel('Y [m]','fontsize',Ftsz)
 zlabel('Z [m]','fontsize',Ftsz)
 title(['NUFFT based RMA'],'fontsize',Ftsz)
-%%
+%% Results output
+print(hf, '-dpng','-r300',['..\results\Image_3D_NUFFT_RMA_NumTX=' num2str(Num_Tx) '_NumRX=' num2str(Num_Rx) '_' num2str(freq(1)/1e9) '_' num2str(freq(end)/1e9) 'GHz.png'])
+print(hf, '-dpdf','-r300',['..\results\Image_3D_NUFFT_RMA_NumTX=' num2str(Num_Tx) '_NumRX=' num2str(Num_Rx) '_' num2str(freq(1)/1e9) '_' num2str(freq(end)/1e9) 'GHz.pdf'],'-opengl')
